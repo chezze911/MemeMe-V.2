@@ -16,13 +16,13 @@ class MemeCollectionViewController: UICollectionViewController {
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
-    var memes: [Meme]!
+    @IBOutlet var collectionViewMain: UICollectionView!
+    
+    var memes: [Meme] { return (UIApplication.shared.delegate as! AppDelegate).memes }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        memes = appDelegate.memes
+
         
         //portrait orientation
         let space:CGFloat = 3.0
@@ -37,10 +37,7 @@ class MemeCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
-        memes = appDelegate.memes
-        collectionView!.reloadData()
+        collectionViewMain?.reloadData()
     }
     // Return number of items in memes array
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -51,7 +48,7 @@ class MemeCollectionViewController: UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MemeCollectionViewCell
         
-        let meme = self.memes[(indexPath as NSIndexPath).row]
+        let meme = memes[(indexPath as NSIndexPath).row]
         
         cell.backgroundView = UIImageView(image: meme.memedImage)
         

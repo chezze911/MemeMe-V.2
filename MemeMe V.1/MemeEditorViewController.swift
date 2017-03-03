@@ -147,10 +147,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
                         image: imagePickerView.image!, memedImage: memedImage)
         
         // Add it to the memes array in the AppDelegate
-        let object = UIApplication.shared.delegate
-        
-        let appDelegate = object as! AppDelegate
-        appDelegate.memes.append(meme)
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
     }
     func generateMemedImage() -> UIImage {
         

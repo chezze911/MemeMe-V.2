@@ -11,21 +11,22 @@ import UIKit
 
 class MemeTableViewController: UITableViewController{
     
-    var memes:[Meme]!
+    var memes: [Meme] { return (UIApplication.shared.delegate as! AppDelegate).memes }
+    @IBOutlet var tableView: UITableView!
 
     let addMemeIdentifer = "MemeEditorViewController"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        memes = appDelegate.memes
-        tableView!.reloadData()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
         //Go straight to editor view if no memes
         if memes.isEmpty {
             performSegue(withIdentifier: addMemeIdentifer, sender: nil)
+        }
+        else {
+            tableView.reloadData()
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
@@ -54,7 +55,7 @@ class MemeTableViewController: UITableViewController{
         
         //pass data from selected row to detail View
         detailVC.meme = memes[indexPath.row]
-        self.navigationController!.pushViewController(detailVC, animated: true)
+        navigationController!.pushViewController(detailVC, animated: true)
     }
   
 }

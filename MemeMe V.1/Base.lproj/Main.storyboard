@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-1946" y="-31"/>
         </scene>
-        <!--Saved Memes-->
+        <!--Meme Table View Controller-->
         <scene sceneID="3YE-wH-PQe">
             <objects>
-                <tableViewController id="Ny7-v2-xkH" userLabel="Saved Memes" customClass="MemeTableViewController" customModule="MemeMe_V_1" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ny7-v2-xkH" userLabel="Meme Table View Controller" customClass="MemeTableViewController" customModule="MemeMe_V_1" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="r6p-bz-Nrj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,6 +85,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="r6p-bz-Nrj" id="Zpc-aX-BLG"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WcL-yo-ByR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -93,7 +96,7 @@
         <!--Meme Detail-->
         <scene sceneID="Wkw-Ca-RVQ">
             <objects>
-                <viewController title="Meme Detail" id="c9I-5V-HbU" customClass="MemeDetailViewController" customModule="MemeMe_V_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeDetailViewController" title="Meme Detail" id="c9I-5V-HbU" customClass="MemeDetailViewController" customModule="MemeMe_V_1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u9K-hb-NS0"/>
                         <viewControllerLayoutGuide type="bottom" id="bWK-qj-2Gh"/>
@@ -272,11 +275,11 @@
             </objects>
             <point key="canvasLocation" x="-1311" y="750"/>
         </scene>
-        <!--Saved Memes-->
+        <!--Meme Collection View Controller-->
         <scene sceneID="Uhp-rB-ooW">
             <objects>
-                <collectionViewController title="Saved Memes" id="UuL-Kv-rS7" customClass="MemeCollectionViewController" customModule="MemeMe_V_1" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="zFZ-4I-V0j">
+                <collectionViewController title="Saved Memes" id="UuL-Kv-rS7" userLabel="Meme Collection View Controller" customClass="MemeCollectionViewController" customModule="MemeMe_V_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="zFZ-4I-V0j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -319,6 +322,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectionView" destination="zFZ-4I-V0j" id="WmB-x3-IdH"/>
                         <outlet property="flowLayout" destination="MI0-Ad-e1O" id="b6V-BA-DB8"/>
                     </connections>
                 </collectionViewController>
@@ -332,6 +336,6 @@
         <image name="table_30x30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yst-Qh-4mH"/>
+        <segue reference="c2F-uu-QeO"/>
     </inferredMetricsTieBreakers>
 </document>

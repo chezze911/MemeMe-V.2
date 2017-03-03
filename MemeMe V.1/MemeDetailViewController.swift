@@ -15,12 +15,13 @@ class MemeDetailViewController
     
     var meme: Meme?
     
-    override func viewDidLoad() {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
         
-        if let meme = meme {
-            imageView.image = meme.memedImage
-        }
+        imageView.image = meme?.memedImage
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
 }
 
