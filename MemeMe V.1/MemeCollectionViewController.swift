@@ -25,14 +25,9 @@ class MemeCollectionViewController: UICollectionViewController {
         memes = appDelegate.memes
         
         //portrait orientation
-        var space:CGFloat = 3.0
-        var dimension = (view.frame.size.width - (2 * space)) / 3.0
+        let space:CGFloat = 3.0
+        let dimension = (view.frame.size.width - (2 * space)) / 3.0
         
-        if (UIDeviceOrientationIsLandscape(<#T##orientation: UIDeviceOrientation##UIDeviceOrientation#>)) {
-            space = 5.0
-            dimension = (view.frame.size.width - (2 * space)) / 5.0
-        }
-   
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
@@ -72,7 +67,7 @@ class MemeCollectionViewController: UICollectionViewController {
         detailController.meme = memes[(indexPath as NSIndexPath).row]
         
         // Present the view controller using navigation
-        navigationController!.pushViewController(detailController, animated: true)
+        self.navigationController!.pushViewController(detailController, animated: true)
         
     }
     @IBAction func addMeme(_ sender: Any) {
