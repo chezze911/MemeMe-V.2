@@ -25,13 +25,13 @@ class MemeCollectionViewController: UICollectionViewController {
         memes = appDelegate.memes
         
         //portrait orientation
-        let space:CGFloat = 3.0
-        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+        var space:CGFloat = 3.0
+        var dimension = (view.frame.size.width - (2 * space)) / 3.0
         
-//        if (UIDeviceOrientationIsLandscape(<#T##orientation: UIDeviceOrientation##UIDeviceOrientation#>)) {
-//            space = 5.0
-//            dimension = (view.frame.size.width - (2 * space)) / 5.0
-//        }
+        if (UIDeviceOrientationIsLandscape(<#T##orientation: UIDeviceOrientation##UIDeviceOrientation#>)) {
+            space = 5.0
+            dimension = (view.frame.size.width - (2 * space)) / 5.0
+        }
    
         
         flowLayout.minimumInteritemSpacing = space

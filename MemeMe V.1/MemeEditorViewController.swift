@@ -151,10 +151,6 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
-        
-        //does same as above code
-        //(UIApplication.shared.delegate as!
-          //  AppDelegate).memes.append(meme)
     }
     func generateMemedImage() -> UIImage {
         
