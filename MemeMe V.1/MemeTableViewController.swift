@@ -12,7 +12,7 @@ import UIKit
 class MemeTableViewController: UITableViewController{
     
     var memes: [Meme] { return (UIApplication.shared.delegate as! AppDelegate).memes }
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet var tableViewMain: UITableView!
 
     let addMemeIdentifer = "MemeEditorViewController"
     
@@ -26,7 +26,7 @@ class MemeTableViewController: UITableViewController{
             performSegue(withIdentifier: addMemeIdentifer, sender: nil)
         }
         else {
-            tableView.reloadData()
+            tableViewMain.reloadData()
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
