@@ -50,11 +50,11 @@ class MemeTableViewController: UITableViewController{
     }
     //Show detailView from selection
     func tableView(sentMemesTableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        let detailViewController = storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         
         //pass data from selected row to detail View
-        detailViewController.selectedMeme = self.memes[indexPath.row]
-        self.navigationController!.pushViewController(detailViewController, animated: true)
+        detailViewController.selectedMeme = memes[indexPath.row]
+        navigationController!.pushViewController(detailViewController, animated: true)
     }
   
 }

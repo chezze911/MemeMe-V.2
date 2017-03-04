@@ -9,7 +9,6 @@
 import UIKit
 
 let reuseIdentifier = "MemeCollectionViewCell"
-let didSelectItemAtIdentifier = "MemeDetailViewController"
 let addMemeIdentifer = "MemeEditorViewController"
 
 class MemeCollectionViewController: UICollectionViewController {
@@ -58,13 +57,13 @@ class MemeCollectionViewController: UICollectionViewController {
     override func collectionView(_ sentMemesCollectionView: UICollectionView, didSelectItemAt indexPath:IndexPath) {
         
         // Grab the DetailViewController from Storyboard
-        let detailController = self.storyboard!.instantiateViewController(withIdentifier: reuseIdentifier) as! MemeDetailViewController
+        let detailController = storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         
         // Populate view controller with data from the selected item
-        detailController.selectedMeme = self.memes[indexPath.row]
+        detailController.selectedMeme = memes[indexPath.row]
         
         // Present the view controller using navigation
-        self.navigationController!.pushViewController(detailController, animated: true)
+        navigationController!.pushViewController(detailController, animated: true)
         
     }
     @IBAction func addMeme(_ sender: Any) {

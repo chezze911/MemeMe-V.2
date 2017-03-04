@@ -31,7 +31,7 @@
         <!--Meme Table View Controller-->
         <scene sceneID="3YE-wH-PQe">
             <objects>
-                <tableViewController id="Ny7-v2-xkH" userLabel="Meme Table View Controller" customClass="MemeTableViewController" customModule="MemeMe_V_1" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MemeTableViewController" id="Ny7-v2-xkH" userLabel="Meme Table View Controller" customClass="MemeTableViewController" customModule="MemeMe_V_1" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="r6p-bz-Nrj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,7 +126,7 @@
         <!--Table View-->
         <scene sceneID="4ZO-ZE-fJn">
             <objects>
-                <navigationController title="Table View" id="cjd-RB-FIN" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MemeTableViewCell" title="Table View" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cjd-RB-FIN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Table" image="table_30x30" id="3VJ-gz-ETW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xd3-C1-lCP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -250,7 +250,7 @@
         <!--Sent Memes Collection-->
         <scene sceneID="FtV-Cv-CjM">
             <objects>
-                <navigationController title="Sent Memes Collection" id="bv3-dL-6VA" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MemeCollectionViewCell" title="Sent Memes Collection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bv3-dL-6VA" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Collection" image="collection_30x30" id="upV-wh-R8E"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sV4-lc-5gH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -267,8 +267,8 @@
         <!--Meme Collection View Controller-->
         <scene sceneID="Uhp-rB-ooW">
             <objects>
-                <collectionViewController title="Saved Memes" id="UuL-Kv-rS7" userLabel="Meme Collection View Controller" customClass="MemeCollectionViewController" customModule="MemeMe_V_1" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="zFZ-4I-V0j">
+                <collectionViewController storyboardIdentifier="MemeCollectionViewController" title="Saved Memes" id="UuL-Kv-rS7" userLabel="Meme Collection View Controller" customClass="MemeCollectionViewController" customModule="MemeMe_V_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="zFZ-4I-V0j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -325,6 +325,6 @@
         <image name="table_30x30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c2F-uu-QeO"/>
+        <segue reference="yst-Qh-4mH"/>
     </inferredMetricsTieBreakers>
 </document>
