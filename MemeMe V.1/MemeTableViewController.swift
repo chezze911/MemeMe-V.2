@@ -27,7 +27,7 @@ class MemeTableViewController: UITableViewController{
             performSegue(withIdentifier: addMemeIdentifer, sender: nil)
         }
         else {
-            sentMemesTableView.reloadData()
+            self.sentMemesTableView.reloadData()
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
@@ -50,11 +50,15 @@ class MemeTableViewController: UITableViewController{
     }
     //Show detailView from selection
     func tableView(sentMemesTableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailViewController = storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         
-        //pass data from selected row to detail View
-        detailViewController.selectedMeme = memes[indexPath.row]
-        navigationController!.pushViewController(detailViewController, animated: true)
+        // Grab the DetailViewController from Storyboard
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        
+        // Pass data from selected row to detail View
+        detailController.selectedMeme = self.memes[indexPath.row]
+        
+        //Present the view controller using navigation
+        self.navigationController!.pushViewController(detailController, animated: true)
     }
   
 }

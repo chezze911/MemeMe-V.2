@@ -53,7 +53,6 @@ class MemeCollectionViewController: UICollectionViewController {
         
         return cell
     }
-   //
     override func collectionView(_ sentMemesCollectionView: UICollectionView, didSelectItemAt indexPath:IndexPath) {
         
         // Grab the DetailViewController from Storyboard
