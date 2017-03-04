@@ -13,8 +13,6 @@ class MemeTableViewController: UITableViewController{
     
     var memes: [Meme] { return (UIApplication.shared.delegate as! AppDelegate).memes }
     
-
-    let addMemeIdentifer = "MemeEditorViewController"
     @IBOutlet var sentMemesTableView: UITableView!
     
     override func viewDidLoad() {
@@ -24,14 +22,14 @@ class MemeTableViewController: UITableViewController{
         super.viewDidLoad()
         //Go straight to editor view if no memes
         if memes.isEmpty {
-            performSegue(withIdentifier: addMemeIdentifer, sender: nil)
+            performSegue(withIdentifier: "MemeEditorViewController", sender: nil)
         }
         else {
             sentMemesTableView.reloadData()
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if (segue.identifier == addMemeIdentifer) {
+        if (segue.identifier == "MemeEditorViewController") {
             _ = segue.destination as! MemeEditorViewController
         }
     }
