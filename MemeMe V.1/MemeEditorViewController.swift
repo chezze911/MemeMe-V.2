@@ -21,6 +21,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
+    //hide the status bar
     override var prefersStatusBarHidden: Bool {return true}
     
     let memeDelegate = MemeTextFieldDelegate()
