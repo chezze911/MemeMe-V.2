@@ -35,7 +35,7 @@ class MemeTableViewController: UITableViewController{
             _ = segue.destination as! MemeEditorViewController
         }
     }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ sentMemesTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
     

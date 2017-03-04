@@ -40,11 +40,11 @@ class MemeCollectionViewController: UICollectionViewController {
         sentMemesCollectionView?.reloadData()
     }
     // Return number of items in memes array
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ sentMemesCollectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count
     }
     // Configure collection view cells for each meme
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ sentMemesCollectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = sentMemesCollectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MemeCollectionViewCell
         
@@ -55,16 +55,16 @@ class MemeCollectionViewController: UICollectionViewController {
         return cell
     }
    //
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath:IndexPath) {
+    override func collectionView(_ sentMemesCollectionView: UICollectionView, didSelectItemAt indexPath:IndexPath) {
         
         // Grab the DetailViewController from Storyboard
-        let detailController = storyboard!.instantiateViewController(withIdentifier: reuseIdentifier) as! MemeDetailViewController
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: reuseIdentifier) as! MemeDetailViewController
         
         // Populate view controller with data from the selected item
-        detailController.selectedMeme = memes[indexPath.row]
+        detailController.selectedMeme = self.memes[indexPath.row]
         
         // Present the view controller using navigation
-        navigationController!.pushViewController(detailController, animated: true)
+        self.navigationController!.pushViewController(detailController, animated: true)
         
     }
     @IBAction func addMeme(_ sender: Any) {
