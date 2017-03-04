@@ -194,6 +194,24 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         topTextField.text?.removeAll()
         bottomTextField.text?.removeAll()
         viewDidLoad()
+        
+        //source:  https://discussions.udacity.com/t/memeeditorvc-dismissed-when-alert-view-is-dismissed/17069/5
+            
+        // Alert the user if he hasn't sent any Memes yet and trying to Cancel the MemeEditorVC to show the Sent Memes VC
+        if (UIApplication.shared.delegate as! AppDelegate).memes.count == 0 {
+            let alertController = UIAlertController(title: "Oops!", message: "You haven't sent any memes yet", preferredStyle: UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title: "Okay, let's Meme", style: UIAlertActionStyle.default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+            
+        } else if (UIApplication.shared.delegate as! AppDelegate).memes.count > 0 {
+            
+            // Bring the Sent Memes VC onto the stack VC
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+            present(vc, animated: true, completion: nil)
+            
+        }
     }
 }
 
