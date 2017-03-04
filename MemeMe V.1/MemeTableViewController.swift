@@ -12,9 +12,10 @@ import UIKit
 class MemeTableViewController: UITableViewController{
     
     var memes: [Meme] { return (UIApplication.shared.delegate as! AppDelegate).memes }
-    @IBOutlet var tableViewMain: UITableView!
+    
 
     let addMemeIdentifer = "MemeEditorViewController"
+    @IBOutlet var sentMemesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class MemeTableViewController: UITableViewController{
             performSegue(withIdentifier: addMemeIdentifer, sender: nil)
         }
         else {
-            tableViewMain.reloadData()
+            sentMemesTableView.reloadData()
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
@@ -39,23 +40,21 @@ class MemeTableViewController: UITableViewController{
     }
     
     //Configure tableView cells
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableViewCell") as UITableViewCell!
+    override func tableView(_ sentMemesTableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = sentMemesTableView.dequeueReusableCell(withIdentifier: "MemeTableViewCell") as UITableViewCell!
         let meme = memes[indexPath.row]
         
         cell?.imageView?.image = meme.memedImage
-        cell?.textLabel?.text = "\(meme.topTextField) \(meme.bottomTextField)"
-        
+        cell?.textLabel?.text = "\(meme.topTextField!)...\(meme.bottomTextField!)"
         return cell!
     }
     //Show detailView from selection
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let object = storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController")
-        let detailVC = object as! MemeDetailViewController
+    func tableView(sentMemesTableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         
         //pass data from selected row to detail View
-        detailVC.meme = memes[indexPath.row]
-        navigationController!.pushViewController(detailVC, animated: true)
+        detailViewController.selectedMeme = self.memes[indexPath.row]
+        self.navigationController!.pushViewController(detailViewController, animated: true)
     }
   
 }

@@ -37,7 +37,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="48l-p5-VEe" userLabel="MemeTableCell" customClass="MemeTableViewCell" customModule="MemeMe_V_1" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeTableViewCell" rowHeight="100" id="48l-p5-VEe" userLabel="MemeTableCell" customClass="MemeTableViewCell" customModule="MemeMe_V_1" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="48l-p5-VEe" id="SCD-Iu-Tww">
@@ -46,30 +46,19 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JLM-JP-xUf" userLabel="Meme Image View">
                                             <rect key="frame" x="8" y="0.0" width="91" height="91"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7c-sR-5hm" userLabel="Meme Label">
-                                            <rect key="frame" x="114" y="35" width="212" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="212" id="qBE-UM-VHd"/>
+                                                <constraint firstAttribute="width" constant="91" id="FoT-ne-9lo"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="e7c-sR-5hm" firstAttribute="centerY" secondItem="JLM-JP-xUf" secondAttribute="centerY" id="8Wg-Lt-NNs"/>
-                                        <constraint firstItem="e7c-sR-5hm" firstAttribute="leading" secondItem="JLM-JP-xUf" secondAttribute="trailing" constant="15" id="Lqx-N1-w4l"/>
                                         <constraint firstItem="JLM-JP-xUf" firstAttribute="leading" secondItem="SCD-Iu-Tww" secondAttribute="leadingMargin" id="WmV-lh-AUh"/>
+                                        <constraint firstItem="JLM-JP-xUf" firstAttribute="bottom" secondItem="SCD-Iu-Tww" secondAttribute="bottomMargin" id="avr-QQ-PMi"/>
                                         <constraint firstItem="JLM-JP-xUf" firstAttribute="top" secondItem="SCD-Iu-Tww" secondAttribute="top" id="ebI-BA-Feg"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="e7c-sR-5hm" secondAttribute="trailing" constant="41" id="gmG-5z-KBj"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="e7c-sR-5hm" secondAttribute="bottom" constant="35" id="hel-RN-Mvk"/>
-                                        <constraint firstItem="e7c-sR-5hm" firstAttribute="top" secondItem="SCD-Iu-Tww" secondAttribute="topMargin" constant="27" id="wau-1I-nXG"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="memeImageView" destination="JLM-JP-xUf" id="bVg-8J-qvL"/>
-                                    <outlet property="memeLabel" destination="e7c-sR-5hm" id="QrE-wG-Ucq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -86,7 +75,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="r6p-bz-Nrj" id="Zpc-aX-BLG"/>
+                        <outlet property="sentMemesTableView" destination="r6p-bz-Nrj" id="TeO-ZP-uye"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WcL-yo-ByR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -96,7 +85,7 @@
         <!--Meme Detail-->
         <scene sceneID="Wkw-Ca-RVQ">
             <objects>
-                <viewController storyboardIdentifier="MemeDetailViewController" title="Meme Detail" id="c9I-5V-HbU" customClass="MemeDetailViewController" customModule="MemeMe_V_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeDetailViewController" title="Meme Detail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c9I-5V-HbU" customClass="MemeDetailViewController" customModule="MemeMe_V_1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u9K-hb-NS0"/>
                         <viewControllerLayoutGuide type="bottom" id="bWK-qj-2Gh"/>
@@ -279,7 +268,7 @@
         <scene sceneID="Uhp-rB-ooW">
             <objects>
                 <collectionViewController title="Saved Memes" id="UuL-Kv-rS7" userLabel="Meme Collection View Controller" customClass="MemeCollectionViewController" customModule="MemeMe_V_1" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="zFZ-4I-V0j">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="zFZ-4I-V0j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -290,14 +279,14 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6xO-N1-Fug" customClass="MemeCollectionViewCell" customModule="MemeMe_V_1" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionViewCell" id="6xO-N1-Fug" customClass="MemeCollectionViewCell" customModule="MemeMe_V_1" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0zp-4y-7nG">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="memeImageView" translatesAutoresizingMaskIntoConstraints="NO" id="0zp-4y-7nG">
                                             <rect key="frame" x="-78" y="-22" width="240" height="128"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -322,8 +311,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="zFZ-4I-V0j" id="WmB-x3-IdH"/>
                         <outlet property="flowLayout" destination="MI0-Ad-e1O" id="b6V-BA-DB8"/>
+                        <outlet property="sentMemesCollectionView" destination="zFZ-4I-V0j" id="ZVo-FA-cQx"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khG-BY-l9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -336,6 +325,6 @@
         <image name="table_30x30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c2F-uu-QeO"/>
+        <segue reference="yst-Qh-4mH"/>
     </inferredMetricsTieBreakers>
 </document>
