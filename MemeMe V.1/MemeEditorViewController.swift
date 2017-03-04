@@ -21,6 +21,8 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
+    override var prefersStatusBarHidden: Bool {return true}
+    
     let memeDelegate = MemeTextFieldDelegate()
     
     var sourceType: UIImagePickerControllerSourceType!
@@ -152,8 +154,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     func generateMemedImage() -> UIImage {
         
         // Hide toolbar and navbar
-        topBar.isHidden = true
-        bottomBar.isHidden = true
+        configureBars(hidden: true)
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -164,12 +165,19 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         UIGraphicsEndImageContext()
         
         // Show toolbar and navbar
-        topBar.isHidden = false
-        bottomBar.isHidden = false
+        configureBars(hidden: false)
         
         return memedImage
     }
-
+    func configureBars(hidden: Bool) {
+        if hidden {
+            topBar.isHidden = true
+            bottomBar.isHidden = true
+        } else {
+            topBar.isHidden = false
+            bottomBar.isHidden = false
+        }
+    }
     //share meme
     @IBAction func share(_ sender: Any) {
         
@@ -190,7 +198,6 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     }
     // clear the text and image
     @IBAction func cancelButton(_ sender: Any) {
-        imagePickerView.image = nil
         topTextField.text?.removeAll()
         bottomTextField.text?.removeAll()
         viewDidLoad()
@@ -207,9 +214,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         } else if (UIApplication.shared.delegate as! AppDelegate).memes.count > 0 {
             
             // Bring the Sent Memes VC onto the stack VC
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController")
-            present(vc, animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
             
         }
     }
