@@ -189,7 +189,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         
     }
     // clear the text and image
-    @IBAction func cancelAction(_ sender: Any) {
+    @IBAction func cancelButton(_ sender: Any) {
         imagePickerView.image = nil
         topTextField.text?.removeAll()
         bottomTextField.text?.removeAll()

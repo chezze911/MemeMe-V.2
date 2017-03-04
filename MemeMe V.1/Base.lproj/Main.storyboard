@@ -178,7 +178,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="b1G-i0-h6G"/>
                                     <barButtonItem title="Cancel" id="A3a-hg-hyS">
                                         <connections>
-                                            <action selector="cancelAction:" destination="BYZ-38-t0r" id="P21-rI-DLI"/>
+                                            <action selector="cancelButton:" destination="BYZ-38-t0r" id="Qne-uh-LOl"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
