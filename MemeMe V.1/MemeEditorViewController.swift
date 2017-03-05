@@ -171,13 +171,8 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         return memedImage
     }
     func configureBars(hidden: Bool) {
-        if hidden {
-            topBar.isHidden = true
-            bottomBar.isHidden = true
-        } else {
-            topBar.isHidden = false
-            bottomBar.isHidden = false
-        }
+            topBar.isHidden = hidden
+            bottomBar.isHidden = hidden
     }
     //share meme
     @IBAction func share(_ sender: Any) {

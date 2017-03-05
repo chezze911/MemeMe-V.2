@@ -16,7 +16,7 @@ class MemeDetailViewController
     var selectedMeme: Meme?
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidLoad()
+        super.viewWillAppear(animated)
         
         imageView.image = selectedMeme?.memedImage
         
